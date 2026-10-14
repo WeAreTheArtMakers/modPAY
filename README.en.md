@@ -26,11 +26,12 @@ That thought shaped modPAY: **your keys stay with you**, **you sign what you see
 |---|---|
 | **Signing Guard** | The signed transaction is decoded on the device and compared with the screen (network, recipient, amount, token, fee, signer); any difference and it is not sent. No token approvals or hidden calls are signed; address-poisoning warnings. |
 | **Keys stay with the user** | Recovery phrases and private keys never leave the browser: encrypted on the device with Argon2id + AES-256-GCM. The server sees only signed transactions and public addresses. No administrator can access keys. |
-| **QR payments** | The merchant enters an amount and gets a QR code. The customer scans it in modPAY or any EVM wallet such as MetaMask (EIP-681), reviews fee and recipient, and confirms. |
+| **QR payments** | The merchant enters an amount and gets a QR code. The customer scans it in modPAY or any EVM wallet such as MetaMask (EIP-681), reviews fee and recipient, and confirms. ETH, BNB, USDC and USDT on Ethereum, **BNB Smart Chain**, Polygon and Arbitrum testnets. |
 | **"Paid" means on-chain** | A payment becomes *Confirmed* only when the transfer is found on-chain with the network's confirmation depth — never because a payer says so. Reorgs, partial, over- and late payments get their own states. |
 | **Accounting-ready** | Every final payment posts a double-entry record in SQL Server (Dr 1010 / Cr 4010). Ledger rows cannot be edited (database triggers); reconciliation compares requests, transfers, chain observations and the ledger. Payment requests and the journal export to CSV for accounting/ERP with exact amounts. |
 | **Refunds** | The merchant signs refunds in their own wallet; a refund is booked (Dr 4090 / Cr 1010) only after the exact transfer is verified on-chain. |
 | **Teams and integrations** | Organizations with Owner/Admin/Finance/Viewer roles and email invitations; HMAC-signed webhooks to your ERP; authenticator-app 2FA. |
+| **KVKK / GDPR** | Users can erase their own account (personal data anonymized, financial records kept for legal retention); privacy notice, terms and cookie notice in the app. Strictly necessary cookies only. |
 | **Enterprise stack** | .NET 10, Angular, SQL Server, RabbitMQ, Redis, Hangfire; Docker and Kubernetes (Helm). |
 
 <table>
@@ -57,7 +58,7 @@ Angular 22 · TypeScript · PWA · C# / ASP.NET Core (.NET 10) · Microsoft SQL 
 
 ## Status and limits
 
-- Test networks (Sepolia, Polygon Amoy, Arbitrum Sepolia) and a local devnet are enabled; **mainnet broadcasting is disabled**.
+- Test networks (Sepolia, BNB Smart Chain Testnet, Polygon Amoy, Arbitrum Sepolia) and a local devnet are enabled; **mainnet broadcasting is disabled**.
 - No independent security audit yet; **no** PCI DSS, SOC 2 or ISO 27001 certification.
 - modPAY is not a bank, payment institution, exchange or custodian; live use with real assets requires the customer's own legal and regulatory assessment.
 

@@ -1,5 +1,13 @@
 # Sürüm notları / release notes
 
+## v0.6.0 — BNB Smart Chain, KVKK ve Lite / BNB Smart Chain, privacy and Lite (15 Ekim 2026)
+
+- **BNB Smart Chain Testnet:** BNB, USDT ve USDC (18 ondalık) ile ödeme; hızlı bloklar için paralel blok tarama; 15 onay.
+- **Hesap silme (KVKK md. 7 / GDPR md. 17):** kişisel veriler anonimleştirilir, mali kayıtlar yasal saklama için korunur; son sahip koruması.
+- **Yasal sayfalar:** aydınlatma metni, kullanım koşulları, çerez bilgisi (hukuki inceleme bekleyen taslak olarak işaretli).
+- **Lite paketi:** web arayüzü, API ve zincir izleyici tek süreçte; Redis/RabbitMQ gerekmez; IIS/FTPS dağıtım betiği.
+- **BNB Smart Chain testnet**, account erasure, legal pages, single-process Lite package for small and free hosts.
+
 ## v0.5.0 — İmza Koruması / Signing Guard (14 Ekim 2026)
 
 - **İmza Koruması:** imzalanan işlem cihazda çözülür; ağ, alıcı, tutar, token, ücret, nonce ve imzacı incelenen değerlerle karşılaştırılır, fark varsa gönderilmez. Yalnızca düz transfer imzalanır (approve, gizli çağrı, yetki devri yok).
