@@ -4,7 +4,18 @@
 
 - **Barındırılan testnet pilotu:** WATAM'ın işlettiği ortamda, kendi alan adınız ve webhook uç noktanızla.
 - **Kendi altyapınız (Kubernetes):** Helm chart ile API, Worker ve Web; SQL Server/Azure SQL, Redis ve RabbitMQ yönetilen servis olarak.
-- **Tek sunucu (Docker Compose):** küçük pilotlar ve geliştirme.
+- **Tek sunucu (Docker Compose + otomatik HTTPS):** küçük pilotlar ve tanıtım ortamları. Tek komutla SQL Server Express, Redis, RabbitMQ, API, Worker ve web kurulur; Caddy, alan adınız için Let's Encrypt sertifikasını kendisi alır. En az 4 GB RAM'li bir Linux sunucu ve bir DNS kaydı yeterlidir.
+
+## Tek sunucu: özet
+
+1. Linux sunucu (x86-64, ≥ 4 GB RAM), Docker kurulu; 80/443 açık.
+2. DNS: `pay.sirketiniz.com` → sunucu IP adresi.
+3. Ortam dosyasında alan adı, Let's Encrypt e-postası, rastgele şifreler, SMTP ve RPC sağlayıcısı.
+4. `docker compose ... up -d --build` — şema kurulumu otomatik; birkaç dakika içinde `https://pay.sirketiniz.com` açılır.
+
+Doğrulanmış: paket production modunda yerel olarak kuruldu; tüm yanıtlarda HSTS/CSP dahil 7 güvenlik başlığı, cüzdan, CSP ve iki adımlı doğrulama tarayıcı testleri masaüstü ve mobilde geçti.
+
+> Kalıcı yayında geçici tünel adresleri (ör. `trycloudflare.com`) kullanmayın: cüzdan sayfaları barındıran rastgele alan adları tarayıcılarca "tehlikeli site" olarak işaretlenebilir. Kendi alan adınız ve geçerli sertifika gerekir.
 
 ## Gereksinimler (Kubernetes)
 
