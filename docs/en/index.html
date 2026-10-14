@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>modPAY — Your keys. On-chain proof. Books that balance.</title>
+<meta name="description" content="Non-custodial wallet, QR token payments and payment operations for business. Signed in the browser, verified on-chain, posted to a SQL Server ledger.">
+<link rel="canonical" href="https://wearetheartmakers.github.io/modPAY/en/">
+<link rel="alternate" hreflang="tr" href="https://wearetheartmakers.github.io/modPAY/">
+<link rel="alternate" hreflang="en" href="https://wearetheartmakers.github.io/modPAY/en/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="modPAY — Your keys. On-chain proof. Books that balance.">
+<meta property="og:description" content="Non-custodial wallet, QR token payments and payment operations for business. Signed in the browser, verified on-chain, posted to a SQL Server ledger.">
+<meta property="og:image" content="https://wearetheartmakers.github.io/modPAY/assets/img/og-en.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#070d1d">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header><div class="wrap">
+<a class="brand" href="./">mod<span>PAY</span></a>
+<nav aria-label="Main menu">
+<a href="#ozellikler">Features</a><a href="#nasil">How it works</a><a href="#guvenlik">Security</a><a href="#teknoloji">Technology</a><a href="#pilot">Pilot</a>
+<a class="lang" href="../" hreflang="tr">TR</a>
+<a class="btn" href="mailto:info@wearetheartmakers.com?subject=modPAY%20pilot">Request a pilot</a>
+</nav></div></header>
+<main id="main">
+<div class="hero"><div class="wrap">
+<h1>Your keys.<br>On-chain proof.<br>Books that balance.</h1>
+<p class="lead">modPAY is a non-custodial digital wallet, QR token-payment infrastructure and payment-operations platform for business. Payments are signed in the browser, verified on-chain and posted to an append-only ledger in SQL Server.</p>
+<div class="actions"><a class="btn" href="mailto:info@wearetheartmakers.com?subject=modPAY%20pilot">Request a pilot</a><a class="btn ghost" href="#video">Watch the video</a></div>
+<p class="note">Currently runs on test networks only and has not had an independent security audit. modPAY is not a bank, payment institution or custodian.</p>
+<div class="video" id="video"><video controls preload="metadata" playsinline poster="../assets/video/poster.jpg" aria-label="modPAY intro video"><source src="../assets/video/modpay-intro.mp4" type="video/mp4"></video></div>
+</div></div>
+
+<section id="ozellikler"><div class="wrap">
+<h2>Features</h2>
+<div class="grid"><div class="card"><h3>Keys stay with the user</h3><p>Recovery phrases and keys never leave the device; encrypted with Argon2id + AES-256-GCM. No administrator can access them.</p></div><div class="card"><h3>QR payments</h3><p>Enter an amount, get a QR. Customers pay in modPAY or any wallet such as MetaMask (EIP-681).</p></div><div class="card"><h3>On-chain proof</h3><p>A payment is confirmed only at the network's confirmation depth. Reorgs, partial and late payments get their own states.</p></div><div class="card"><h3>Accounting-ready</h3><p>Append-only double-entry ledger, reconciliation and trial balance. Every final payment posts automatically.</p></div><div class="card"><h3>Refunds</h3><p>Signed by the merchant in their own wallet; booked once the exact transfer is verified on-chain.</p></div><div class="card"><h3>Teams and integrations</h3><p>Organizations, roles, email invitations, signed webhooks and two-factor authentication.</p></div></div>
+</div></section>
+
+<section><div class="wrap">
+<h2>Screens</h2>
+<div class="shots"><figure><img loading="lazy" src="../assets/img/invoice-qr.jpg" alt="Payment request and QR code"><figcaption>Payment request and QR code</figcaption></figure><figure><img loading="lazy" src="../assets/img/ledger.jpg" alt="Ledger, trial balance and reconciliation"><figcaption>Ledger, trial balance and reconciliation</figcaption></figure><figure><img loading="lazy" src="../assets/img/refund-confirmed.jpg" alt="Refund verified on-chain"><figcaption>Refund verified on-chain</figcaption></figure><figure><img loading="lazy" src="../assets/img/developers.jpg" alt="Signed webhooks"><figcaption>Signed webhooks</figcaption></figure><figure><img loading="lazy" src="../assets/img/organization.jpg" alt="Organizations and roles"><figcaption>Organizations and roles</figcaption></figure><figure><img loading="lazy" src="../assets/img/wallet.jpg" alt="Wallet and ownership verification"><figcaption>Wallet and ownership verification</figcaption></figure></div>
+<div class="phones"><img loading="lazy" src="../assets/img/mobile-pay.jpg" alt="Payment request on a phone"><img loading="lazy" src="../assets/img/mobile-review.jpg" alt="Payment review"><img loading="lazy" src="../assets/img/mobile-confirmed.jpg" alt="Payment confirmed"></div>
+</div></section>
+
+<section id="nasil"><div class="wrap">
+<h2>How it works</h2>
+<ol class="steps"><li>The merchant creates a payment request; a unique amount and an expiry are assigned and a QR code is generated.</li><li>The customer scans it, sees network, recipient, amount and maximum fee, and confirms. The transaction is signed on their device.</li><li>The worker finds the transfer on-chain and counts confirmations; payments from external wallets are detected without a hash.</li><li>At the required depth the request is confirmed; ledger posting, event and webhook are produced in one database transaction.</li></ol>
+</div></section>
+
+<section id="guvenlik"><div class="wrap">
+<h2>Security</h2>
+<div class="grid"><div class="card"><h3>Encrypted on the device</h3><p>Argon2id + AES-256-GCM; auto-lock; password again for every export.</p></div><div class="card"><h3>Explicit consent</h3><p>No transaction is signed before the user reviews and confirms the values.</p></div><div class="card"><h3>Hardened sessions</h3><p>HttpOnly, Secure, SameSite=Strict cookies; CSRF; lockout; rate limits; TOTP.</p></div><div class="card"><h3>Immutable records</h3><p>Ledger and audit rows are protected by database triggers.</p></div><div class="card"><h3>Strict CSP</h3><p>Same-origin only; no inline scripts or styles.</p></div><div class="card"><h3>Kubernetes</h3><p>Non-root, read-only containers; NetworkPolicies; restricted Pod Security.</p></div></div>
+<p class="note" style="margin-top:20px">No independent security audit yet; no PCI DSS, SOC 2 or ISO 27001 certification. Mainnet broadcasting is disabled.</p>
+</div></section>
+
+<section id="teknoloji"><div class="wrap">
+<h2>Technology</h2>
+<p class="lead">Enterprise .NET and Angular stack; 61 domain and 32 SQL Server integration tests, end-to-end tests on desktop and mobile with real signing and on-chain confirmation.</p>
+<div class="chips"><span>Angular 22</span><span>TypeScript</span><span>PWA</span><span>C# / ASP.NET Core (.NET 10)</span><span>SQL Server</span><span>Entity Framework Core</span><span>Dapper</span><span>ADO.NET</span><span>RabbitMQ</span><span>Redis</span><span>Hangfire</span><span>SignalR</span><span>viem</span><span>Docker</span><span>Kubernetes · Helm</span><span>GitHub Actions</span><span>Azure Pipelines</span><span>Playwright</span><span>xUnit</span></div>
+</div></section>
+
+<section id="pilot"><div class="wrap">
+<h2>Pilot and licensing</h2>
+<div class="table-wrap"><table><thead><tr><th>Package</th><th>Scope</th><th>Price</th></tr></thead><tbody>
+<tr><td><strong>Pilot (testnet)</strong></td><td>30 days; installation, integration and acceptance test; go-live recommendation</td><td>On request</td></tr><tr><td><strong>Business</strong></td><td>One organization, one production installation, support and updates</td><td>On request</td></tr><tr><td><strong>Enterprise</strong></td><td>Multiple environments, custom networks/tokens, ERP integration, priority support</td><td>On request</td></tr>
+</tbody></table></div>
+<div class="actions"><a class="btn" href="mailto:info@wearetheartmakers.com?subject=modPAY%20demo">Request a demo</a><a class="btn ghost" href="https://github.com/WeAreTheArtMakers/modPAY">GitHub</a></div>
+</div></section>
+</main>
+<footer><div class="wrap">© 2026 WATAM — We Are The Art Makers · info@wearetheartmakers.com · +90 505 314 9360 · Security: admin@wearetheartmakers.com</div></footer>
+</body></html>

@@ -1,0 +1,85 @@
+<p align="center"><a href="https://wearetheartmakers.github.io/modPAY/"><img src="docs/assets/img/og-tr.png" alt="modPAY — Anahtar sizde, ödeme zincirde, kayıt defterde" width="100%"></a></p>
+
+# modPAY — Anahtar sizde, ödeme zincirde, kayıt defterde.
+
+**modPAY**, kendi anahtarınızı tuttuğunuz (non-custodial) bir dijital cüzdan, QR ile token ödeme altyapısı ve kurumsal finansal işlem yönetimi platformudur. Ödeme tarayıcıda imzalanır, zincirde doğrulanır ve SQL Server'da çift taraflı, değiştirilemez bir deftere işlenir.
+
+[Tanıtım sitesi](https://wearetheartmakers.github.io/modPAY/) · [Tanıtım videosu](docs/assets/video/modpay-intro.mp4) · [English](README.en.md) · [Ticari lisans](COMMERCIAL_LICENSING.md) · **info@wearetheartmakers.com** · +90 505 314 9360
+
+> Bu depo modPAY'in tanıtım sayfasıdır; yazılımın kaynak kodunu içermez. modPAY, WATAM'ın tescilli ürünüdür ve lisansla kullanılır. Şu an **yalnızca test ağlarında** çalışır; bağımsız güvenlik denetiminden geçmemiştir.
+
+## Neden modPAY?
+
+| | |
+|---|---|
+| **Anahtar kullanıcıda** | Kurtarma ifadesi ve özel anahtarlar tarayıcıdan hiç çıkmaz: Argon2id + AES-256-GCM ile şifrelenip cihazda saklanır. Sunucu yalnızca imzalı işlemi ve herkese açık adresleri görür. Yöneticiler dahil kimse anahtarlara erişemez. |
+| **QR ile ödeme** | Satıcı tutarı girer, QR çıkar. Müşteri modPAY'de ya da MetaMask gibi herhangi bir EVM cüzdanında (EIP-681) okutur, ücreti ve alıcıyı görüp onaylar. |
+| **"Ödendi" demek için zincir şart** | Bir ödeme, ödeyenin "ödedim" demesiyle değil, transfer zincirde bulunup ağın onay derinliğine ulaşınca *Onaylandı* olur. Reorg, eksik/fazla/geç ödeme ayrı durumlara düşer. |
+| **Muhasebeye hazır** | Her kesinleşen ödeme SQL Server'da otomatik çift taraflı kayıt üretir (Dr 1010 / Cr 4010). Kayıtlar veritabanı tetikleyicisiyle değiştirilemez; mutabakat raporu talep, transfer, zincir gözlemi ve defteri karşılaştırır. |
+| **İade** | Satıcı iadeyi kendi cüzdanında imzalar; iade, tam tutar zincirde doğrulanınca deftere işlenir (Dr 4090 / Cr 1010). |
+| **Ekip ve entegrasyon** | Organizasyonlar ve roller (Sahip, Yönetici, Finans, İzleyici), e-posta daveti; ERP'nize HMAC imzalı webhook'lar; iki adımlı doğrulama. |
+| **Kurumsal altyapı** | .NET 10, Angular, SQL Server, RabbitMQ, Redis, Hangfire; Docker ve Kubernetes (Helm). |
+
+<table>
+  <tr>
+    <td width="50%"><img src="docs/assets/img/invoice-qr.jpg" alt="Satıcı ödeme talebi ve QR kodu"><br><strong>Ödeme talebi ve QR.</strong> modPAY bağlantısı ya da her cüzdan için EIP-681.</td>
+    <td width="50%"><img src="docs/assets/img/ledger.jpg" alt="Defter ve mutabakat"><br><strong>Defter ve mutabakat.</strong> Sıfır uyumsuzluk, borç = alacak.</td>
+  </tr>
+  <tr>
+    <td width="50%"><img src="docs/assets/img/refund-confirmed.jpg" alt="Zincirde doğrulanmış iade"><br><strong>İade.</strong> Tarayıcıda imzalanır, zincirde doğrulanır.</td>
+    <td width="50%"><img src="docs/assets/img/developers.jpg" alt="Webhook yönetimi"><br><strong>Webhook'lar.</strong> İmzalı olaylar, teslimat günlüğü.</td>
+  </tr>
+</table>
+
+<p align="center"><img src="docs/assets/img/mobile-review.jpg" alt="Telefonda ödeme onayı" width="280"> <img src="docs/assets/img/mobile-confirmed.jpg" alt="Telefonda ödeme onaylandı" width="280"></p>
+
+## Nasıl çalışır?
+
+```
+ Telefon / tarayıcı (Angular PWA)             Sunucu (.NET 10)                        Veri
+ ┌────────────────────────────┐  imzalı tx   ┌──────────────────────────┐  EF Core   ┌─────────────────┐
+ │ Cüzdan: BIP-39/44, viem    │ ───────────▶ │ API: kimlik, ödeme,      │ ─────────▶ │ SQL Server      │
+ │ Şifreli kasa (IndexedDB)   │  (anahtar    │ defter, organizasyon     │  Dapper    │ defter (append- │
+ │ QR okuma / EIP-681         │   gitmez)    ├──────────────────────────┤  ADO.NET   │ only), outbox   │
+ └─────────────┬──────────────┘              │ Worker: zincir izleyici, │            └─────────────────┘
+               │ SignalR ◀─ RabbitMQ ◀─ outbox│ webhook, Hangfire        │   Redis: lider kilidi
+               ▼                              └────────────┬─────────────┘
+        EVM test ağları (Sepolia, Amoy, Arbitrum Sepolia) ◀┘ log + blok tarama, onay ve reorg takibi
+```
+
+1. Satıcı ödeme talebi oluşturur; benzersiz tutar ve son kullanma zamanı atanır, QR üretilir.
+2. Müşteri QR'ı okutur, ağ ücretini ve alıcıyı inceler, açıkça onaylar; işlem cihazında imzalanır.
+3. Worker transferi zincirde bulur (ERC-20 logları ve native transferler için blok tarama), onayları sayar.
+4. Onay derinliğine ulaşınca durum *Onaylandı* olur; defter kaydı, outbox olayı ve webhook aynı işlemde üretilir.
+
+## Teknoloji
+
+| Katman | Kullanılanlar |
+|---|---|
+| Frontend | Angular 22, TypeScript, Tailwind, PWA, viem, SignalR, katı CSP |
+| Backend | C#, ASP.NET Core (.NET 10), Minimal API, ASP.NET Core Identity, FluentValidation |
+| Veri | Microsoft SQL Server, Entity Framework Core (migration), Dapper, ADO.NET; append-only defter tetikleyicileri |
+| Mesajlaşma ve işler | RabbitMQ (transactional outbox, publisher confirms), Redis (lider kilidi), Hangfire |
+| Dağıtım | Docker (chiseled, root olmayan imajlar), Kubernetes + Helm, GitHub Actions ve Azure Pipelines |
+| Test | 61 domain + 32 gerçek SQL Server entegrasyon testi, 36 frontend birim testi, masaüstü ve mobilde Playwright uçtan uca testler (gerçek imza, yayın ve zincir onayı) |
+
+## Belgeler
+
+- [Mimari ve teknoloji](docs/guides/mimari.md)
+- [Güvenlik modeli](docs/guides/guvenlik.md)
+- [Webhook entegrasyonu](docs/guides/webhooks.md)
+- [Kurulum ve işletim (Docker, Kubernetes)](docs/guides/kurulum.md)
+- [Ürün özeti](docs/sales/urun-ozeti.md) · [Pilot ve kabul](docs/sales/pilot-ve-kabul.md)
+- [Sürüm notları](CHANGELOG.md)
+
+## Durum ve sınırlar
+
+- Test ağları (Sepolia, Polygon Amoy, Arbitrum Sepolia) ve yerel devnet etkin; **ana ağda işlem gönderimi kapalıdır**.
+- Bağımsız güvenlik denetimi yapılmadı; PCI DSS, SOC 2, ISO 27001 gibi sertifikalar **yoktur**.
+- modPAY bir banka, ödeme kuruluşu, borsa ya da saklayıcı değildir; gerçek varlıklarla kullanım, müşterinin hukuki ve düzenleyici değerlendirmesini gerektirir.
+
+## İletişim
+
+Satış ve destek: **info@wearetheartmakers.com**, **+90 505 314 9360**. Güvenlik bildirimleri: **admin@wearetheartmakers.com** ([güvenlik politikası](SECURITY.md)).
+
+© 2026 WATAM — We Are The Art Makers. Tüm hakları saklıdır.
