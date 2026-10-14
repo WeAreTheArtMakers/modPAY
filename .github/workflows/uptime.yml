@@ -1,0 +1,18 @@
+# Keeps the free-plan demo warm (IIS stops idle apps, which would also stop the chain watcher) and records uptime.
+name: Demo uptime
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+permissions: {}
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Ping /health/ready
+        run: |
+          for url in https://modpay.runasp.net/health/ready http://modpay.runasp.net/health/ready; do
+            if curl -fsS --max-time 60 "$url"; then echo " <- $url"; exit 0; fi
+          done
+          echo "::error::modPAY demo is not responding"; exit 1
