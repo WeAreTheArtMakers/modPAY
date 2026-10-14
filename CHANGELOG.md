@@ -1,5 +1,10 @@
 # Sürüm notları / release notes
 
+## v0.3.0 — Muhasebe dışa aktarma / accounting exports (14 Ekim 2026)
+
+- **CSV dışa aktarma:** ödeme talepleri ve defter yevmiyesi; tutarlar hem en küçük birimde hem tam ondalık olarak (kayan nokta yok), iade ve net tutar, tarih aralığı, UTF-8 BOM, formül enjeksiyonuna karşı koruma. Organizasyonlarda Finans ve üstü roller; her dışa aktarma denetim kaydına yazılır.
+- **CSV exports:** payment requests and the ledger journal with exact base-unit and decimal amounts, refunds and net, date range, formula-injection safe; Finance+ and audited.
+
 ## v0.2.0 — İşletme özellikleri / business features (14 Ekim 2026)
 
 - **Organizasyonlar:** Sahip / Yönetici / Finans / İzleyici rolleri, e-posta ile davet, ekip çalışma alanında ortak ödeme talepleri, defter ve webhook'lar. Cüzdan anahtarları kişide kalır.

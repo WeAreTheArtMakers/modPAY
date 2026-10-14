@@ -15,7 +15,7 @@
 | **Anahtar kullanıcıda** | Kurtarma ifadesi ve özel anahtarlar tarayıcıdan hiç çıkmaz: Argon2id + AES-256-GCM ile şifrelenip cihazda saklanır. Sunucu yalnızca imzalı işlemi ve herkese açık adresleri görür. Yöneticiler dahil kimse anahtarlara erişemez. |
 | **QR ile ödeme** | Satıcı tutarı girer, QR çıkar. Müşteri modPAY'de ya da MetaMask gibi herhangi bir EVM cüzdanında (EIP-681) okutur, ücreti ve alıcıyı görüp onaylar. |
 | **"Ödendi" demek için zincir şart** | Bir ödeme, ödeyenin "ödedim" demesiyle değil, transfer zincirde bulunup ağın onay derinliğine ulaşınca *Onaylandı* olur. Reorg, eksik/fazla/geç ödeme ayrı durumlara düşer. |
-| **Muhasebeye hazır** | Her kesinleşen ödeme SQL Server'da otomatik çift taraflı kayıt üretir (Dr 1010 / Cr 4010). Kayıtlar veritabanı tetikleyicisiyle değiştirilemez; mutabakat raporu talep, transfer, zincir gözlemi ve defteri karşılaştırır. |
+| **Muhasebeye hazır** | Her kesinleşen ödeme SQL Server'da otomatik çift taraflı kayıt üretir (Dr 1010 / Cr 4010). Kayıtlar veritabanı tetikleyicisiyle değiştirilemez; mutabakat raporu talep, transfer, zincir gözlemi ve defteri karşılaştırır. Ödeme talepleri ve yevmiye kayıtları tam hassasiyetle CSV olarak muhasebe/ERP'ye aktarılır. |
 | **İade** | Satıcı iadeyi kendi cüzdanında imzalar; iade, tam tutar zincirde doğrulanınca deftere işlenir (Dr 4090 / Cr 1010). |
 | **Ekip ve entegrasyon** | Organizasyonlar ve roller (Sahip, Yönetici, Finans, İzleyici), e-posta daveti; ERP'nize HMAC imzalı webhook'lar; iki adımlı doğrulama. |
 | **Kurumsal altyapı** | .NET 10, Angular, SQL Server, RabbitMQ, Redis, Hangfire; Docker ve Kubernetes (Helm). |

@@ -15,7 +15,7 @@
 | **Keys stay with the user** | Recovery phrases and private keys never leave the browser: encrypted on the device with Argon2id + AES-256-GCM. The server sees only signed transactions and public addresses. No administrator can access keys. |
 | **QR payments** | The merchant enters an amount and gets a QR code. The customer scans it in modPAY or any EVM wallet such as MetaMask (EIP-681), reviews fee and recipient, and confirms. |
 | **"Paid" means on-chain** | A payment becomes *Confirmed* only when the transfer is found on-chain with the network's confirmation depth — never because a payer says so. Reorgs, partial, over- and late payments get their own states. |
-| **Accounting-ready** | Every final payment posts a double-entry record in SQL Server (Dr 1010 / Cr 4010). Ledger rows cannot be edited (database triggers); reconciliation compares requests, transfers, chain observations and the ledger. |
+| **Accounting-ready** | Every final payment posts a double-entry record in SQL Server (Dr 1010 / Cr 4010). Ledger rows cannot be edited (database triggers); reconciliation compares requests, transfers, chain observations and the ledger. Payment requests and the journal export to CSV for accounting/ERP with exact amounts. |
 | **Refunds** | The merchant signs refunds in their own wallet; a refund is booked (Dr 4090 / Cr 1010) only after the exact transfer is verified on-chain. |
 | **Teams and integrations** | Organizations with Owner/Admin/Finance/Viewer roles and email invitations; HMAC-signed webhooks to your ERP; authenticator-app 2FA. |
 | **Enterprise stack** | .NET 10, Angular, SQL Server, RabbitMQ, Redis, Hangfire; Docker and Kubernetes (Helm). |
