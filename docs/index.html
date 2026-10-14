@@ -14,6 +14,9 @@
 <meta property="og:image" content="https://wearetheartmakers.github.io/modPAY/assets/img/og-tr.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#070d1d">
+<link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" type="image/svg+xml" href="assets/icon.svg">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
@@ -21,7 +24,7 @@
 <header><div class="wrap">
 <a class="brand" href="./">mod<span>PAY</span></a>
 <nav aria-label="Ana menü">
-<a href="#ozellikler">Özellikler</a><a href="#nasil">Nasıl çalışır</a><a href="#guvenlik">Güvenlik</a><a href="#teknoloji">Teknoloji</a><a href="#pilot">Pilot</a>
+<a href="#hikaye">Hikâye</a><a href="#ozellikler">Özellikler</a><a href="#nasil">Nasıl çalışır</a><a href="#guvenlik">Güvenlik</a><a href="#teknoloji">Teknoloji</a><a href="#pilot">Pilot</a>
 <a class="lang" href="en/" hreflang="en">EN</a>
 <a class="btn" href="mailto:info@wearetheartmakers.com?subject=modPAY%20pilot">Pilot isteyin</a>
 </nav></div></header>
@@ -34,9 +37,26 @@
 <div class="video" id="video"><video controls preload="metadata" playsinline poster="assets/video/poster.jpg" aria-label="modPAY tanıtım videosu (İngilizce)"><source src="assets/video/modpay-intro.mp4" type="video/mp4"></video></div>
 </div></div>
 
+<section id="hikaye"><div class="wrap">
+<h2>Anahtarı saklamak yetmiyor</h2>
+<div class="story"><div>
+<blockquote>Dijital varlıkları güvence altına almak, yalnızca özel anahtarları saklamaktan mı ibaret? Yoksa asıl mesele, işlemlerin nasıl yetkilendirildiği, doğrulandığı ve kaydedildiği mi?</blockquote>
+<p>2025'in başında büyük bir kripto borsasının soğuk cüzdanından yaklaşık 1,5 milyar dolarlık varlık çalındı. Özel anahtarlar çalınmadı; donanım cüzdanlar yerindeydi. İmzacılar ekranda olağan görünen bir işlemi onayladı, ama imzaladıkları veri cüzdanın kontrolünü saldırgana devrediyordu. Her gün benzer şekilde, geçmişteki bir adrese benzeyen "zehirli" adreslere ya da sınırsız token onayı veren işlemlere imza atılarak varlık kaybediliyor.</p>
+<p>Bu düşünce modPAY'in şekillenmesine katkı sağladı. modPAY üç ilke üzerine kurulu:</p>
+<ol>
+<li><strong>Anahtar sizde.</strong> Kurtarma ifadesi ve anahtarlar cihazdan çıkmaz; sunucu, yöneticiler dahil, onlara erişemez.</li>
+<li><strong>Ne gördüyseniz onu imzalarsınız.</strong> <em>İmza Koruması</em> imzalanan işlemi cihazda çözer; ağı, alıcıyı, tutarı, token'ı, ücreti ve imzacıyı ekrandakiyle tek tek karşılaştırır. Fark varsa işlem gönderilmez. Cüzdan yalnızca düz transfer imzalar; token onayı (approve), gizli kontrat çağrısı ya da yetki devri imzalamaz.</li>
+<li><strong>Zincirde doğrulanmadan kayıt yok.</strong> Ödeme ve iade, transfer zincirde onay derinliğine ulaşınca deftere işlenir.</li>
+</ol>
+<p><strong>Güvenli ama yorucu değil:</strong> doğrulanmış satıcıya, kendi hesaplarınıza ve daha önce gönderdiğiniz adreslere ek adım yok. Yeni bir alıcıda adresin son 4 karakterini, geçmişinizdeki bir adrese benzeyen (zehirli) adreste 8 karakterini yazmanız istenir. Adresler, karşılaştırması kolay 4'lü gruplar halinde gösterilir.</p>
+<p class="small">modPAY çalınmış varlıkları geri getirmez ve yaşanmış bir saldırıyı önleyeceğini iddia etmez. İmza Koruması, uygulama içinde ekranda gösterilen ile imzalanan arasındaki farkı yakalar; donanım cüzdanın kendi ekranında doğrulamanın ve bağımsız güvenlik denetiminin yerini tutmaz.</p>
+</div>
+<div class="imgs"><img loading="lazy" src="assets/img/guard-lookalike.jpg" alt="İmza Koruması: olası adres zehirleme uyarısı"><img class="phone" loading="lazy" src="assets/img/guard-mobile.jpg" alt="Telefonda yeni alıcı onayı: adresin son 4 karakteri"></div>
+</div></div></section>
+
 <section id="ozellikler"><div class="wrap">
 <h2>Özellikler</h2>
-<div class="grid"><div class="card"><h3>Anahtar kullanıcıda</h3><p>Kurtarma ifadesi ve anahtarlar cihazdan çıkmaz; Argon2id + AES-256-GCM ile şifrelenir. Yöneticiler dahil kimse erişemez.</p></div><div class="card"><h3>QR ile ödeme</h3><p>Tutar girin, QR çıksın. Müşteri modPAY'de ya da MetaMask gibi herhangi bir cüzdanda (EIP-681) öder.</p></div><div class="card"><h3>Zincir kanıtı</h3><p>Ödeme, transfer zincirde onay derinliğine ulaşınca onaylanır. Reorg, eksik ya da geç ödeme ayrı durumlara düşer.</p></div><div class="card"><h3>Muhasebeye hazır</h3><p>Çift taraflı, değiştirilemez defter; mutabakat ve mizan. Her kesinleşen ödeme otomatik kayıt üretir; muhasebe için tam hassasiyetli CSV dışa aktarma.</p></div><div class="card"><h3>İade</h3><p>Satıcı kendi cüzdanında imzalar; tam transfer zincirde doğrulanınca deftere işlenir.</p></div><div class="card"><h3>Ekip ve entegrasyon</h3><p>Organizasyonlar, roller, e-posta davetleri, imzalı webhook'lar ve iki adımlı doğrulama.</p></div></div>
+<div class="grid"><div class="card"><h3>İmza Koruması</h3><p>İmzalanan işlem cihazda çözülüp ekrandakiyle karşılaştırılır; fark varsa gönderilmez. Adres zehirlemeye ve gizli onaylara karşı uyarı.</p></div><div class="card"><h3>Anahtar kullanıcıda</h3><p>Kurtarma ifadesi ve anahtarlar cihazdan çıkmaz; Argon2id + AES-256-GCM ile şifrelenir. Yöneticiler dahil kimse erişemez.</p></div><div class="card"><h3>QR ile ödeme</h3><p>Tutar girin, QR çıksın. Müşteri modPAY'de ya da MetaMask gibi herhangi bir cüzdanda (EIP-681) öder.</p></div><div class="card"><h3>Zincir kanıtı</h3><p>Ödeme, transfer zincirde onay derinliğine ulaşınca onaylanır. Reorg, eksik ya da geç ödeme ayrı durumlara düşer.</p></div><div class="card"><h3>Muhasebeye hazır</h3><p>Çift taraflı, değiştirilemez defter; mutabakat ve mizan. Her kesinleşen ödeme otomatik kayıt üretir; muhasebe için tam hassasiyetli CSV dışa aktarma.</p></div><div class="card"><h3>İade</h3><p>Satıcı kendi cüzdanında imzalar; tam transfer zincirde doğrulanınca deftere işlenir.</p></div><div class="card"><h3>Ekip ve entegrasyon</h3><p>Organizasyonlar, roller, e-posta davetleri, imzalı webhook'lar ve iki adımlı doğrulama.</p></div></div>
 </div></section>
 
 <section><div class="wrap">

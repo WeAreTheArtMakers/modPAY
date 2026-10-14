@@ -1,5 +1,17 @@
 # Sürüm notları / release notes
 
+## v0.5.0 — İmza Koruması / Signing Guard (14 Ekim 2026)
+
+- **İmza Koruması:** imzalanan işlem cihazda çözülür; ağ, alıcı, tutar, token, ücret, nonce ve imzacı incelenen değerlerle karşılaştırılır, fark varsa gönderilmez. Yalnızca düz transfer imzalanır (approve, gizli çağrı, yetki devri yok).
+- **Alıcı kontrolleri:** doğrulanmış satıcı ve bilinen adreste ek adım yok; yeni alıcıda son 4, adres zehirleme şüphesinde son 8 karakter; sıfır adres ve token kontratı reddedilir; adresler 4'lü gruplar halinde.
+- **İkonlar ve PWA:** yeni ikon seti (favicon.ico, SVG, iOS, maskable), telefona kurulum yeniden çalışıyor; Öde / Talep / Cüzdan kısayolları.
+- **Altyapı:** RPC sağlayıcı yedeklemesi (zincir kimliği doğrulamalı), otomatik HTTPS'li tek sunucu kurulumu, eşzamanlı kayıt hatası ve eksik güvenlik başlıkları düzeltildi.
+- **Signing Guard:** signed bytes are checked against the reviewed values before broadcast; plain transfers only. Recipient checks, new icon set and installable PWA, RPC failover, single-server HTTPS bundle.
+
+## v0.4.0 — Kurulum ve dayanıklılık / install and resilience (14 Ekim 2026)
+
+- Tek sunucu kurulumu (Docker Compose + Caddy, otomatik Let's Encrypt), yedek RPC sağlayıcıları, yeni doğal seslendirmeli tanıtım videosu.
+
 ## v0.3.0 — Muhasebe dışa aktarma / accounting exports (14 Ekim 2026)
 
 - **CSV dışa aktarma:** ödeme talepleri ve defter yevmiyesi; tutarlar hem en küçük birimde hem tam ondalık olarak (kayan nokta yok), iade ve net tutar, tarih aralığı, UTF-8 BOM, formül enjeksiyonuna karşı koruma. Organizasyonlarda Finans ve üstü roller; her dışa aktarma denetim kaydına yazılır.

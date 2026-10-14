@@ -8,10 +8,23 @@
 
 > Bu depo modPAY'in tanıtım sayfasıdır; yazılımın kaynak kodunu içermez. modPAY, WATAM'ın tescilli ürünüdür ve lisansla kullanılır. Şu an **yalnızca test ağlarında** çalışır; bağımsız güvenlik denetiminden geçmemiştir.
 
+## Hikâye: anahtarı saklamak yetmiyor
+
+> **Dijital varlıkları güvence altına almak, yalnızca özel anahtarları saklamaktan mı ibaret? Yoksa asıl mesele, işlemlerin nasıl yetkilendirildiği, doğrulandığı ve kaydedildiği mi?**
+
+2025'in başında büyük bir kripto borsasının soğuk cüzdanından yaklaşık 1,5 milyar dolarlık varlık çalındı. Özel anahtarlar çalınmadı; imzacılar ekranda olağan görünen bir işlemi onayladı, ama imzaladıkları veri cüzdanın kontrolünü saldırgana devrediyordu. Her gün benzer şekilde, "zehirli" benzer adreslere ya da sınırsız token onaylarına imza atılarak varlık kaybediliyor.
+
+Bu düşünce modPAY'in şekillenmesine katkı sağladı: **anahtar sizde**, **ne gördüyseniz onu imzalarsınız** (*İmza Koruması*: imzalanan işlem cihazda çözülür ve ekrandakiyle alan alan karşılaştırılır; fark varsa gönderilmez; cüzdan yalnızca düz transfer imzalar) ve **zincirde doğrulanmadan kayıt yok**. Doğrulanmış satıcıya ve bilinen adreslere ek adım yoktur; yeni alıcıda adresin son 4, benzer (zehirli) adreste son 8 karakteri istenir.
+
+<p align="center"><img src="docs/assets/img/guard-lookalike.jpg" alt="İmza Koruması: olası adres zehirleme" width="62%"> <img src="docs/assets/img/guard-mobile.jpg" alt="Yeni alıcı onayı" width="30%"></p>
+
+<sub>modPAY çalınmış varlıkları geri getirmez ve yaşanmış bir saldırıyı önleyeceğini iddia etmez. İmza Koruması donanım cüzdanda ekranda doğrulamanın ve bağımsız denetimin yerini tutmaz.</sub>
+
 ## Neden modPAY?
 
 | | |
 |---|---|
+| **İmza Koruması** | İmzalanan işlem cihazda çözülür; ağ, alıcı, tutar, token, ücret ve imzacı ekrandakiyle karşılaştırılır, fark varsa gönderilmez. Token onayı ve gizli kontrat çağrısı imzalanmaz; adres zehirlemeye karşı uyarı. |
 | **Anahtar kullanıcıda** | Kurtarma ifadesi ve özel anahtarlar tarayıcıdan hiç çıkmaz: Argon2id + AES-256-GCM ile şifrelenip cihazda saklanır. Sunucu yalnızca imzalı işlemi ve herkese açık adresleri görür. Yöneticiler dahil kimse anahtarlara erişemez. |
 | **QR ile ödeme** | Satıcı tutarı girer, QR çıkar. Müşteri modPAY'de ya da MetaMask gibi herhangi bir EVM cüzdanında (EIP-681) okutur, ücreti ve alıcıyı görüp onaylar. |
 | **"Ödendi" demek için zincir şart** | Bir ödeme, ödeyenin "ödedim" demesiyle değil, transfer zincirde bulunup ağın onay derinliğine ulaşınca *Onaylandı* olur. Reorg, eksik/fazla/geç ödeme ayrı durumlara düşer. |

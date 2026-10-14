@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <title>modPAY</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#15233F"/>
+      <stop offset="1" stop-color="#0A101D"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.42" r="0.62">
+      <stop offset="0" stop-color="#3B82F6" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#3B82F6" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="m" x1="0.1" y1="0" x2="0.9" y2="1">
+      <stop offset="0" stop-color="#60A5FA"/>
+      <stop offset="0.5" stop-color="#3B82F6"/>
+      <stop offset="1" stop-color="#2DD4BF"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <rect width="512" height="512" rx="112" fill="url(#glow)"/>
+  <rect x="3" y="3" width="506" height="506" rx="109" fill="none" stroke="#FFFFFF" stroke-opacity="0.09" stroke-width="6"/>
+  <path d="M136 350V186c0-13 15-20 25-12l95 76 95-76c10-8 25-1 25 12v164" fill="none" stroke="url(#m)" stroke-width="46" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="256" cy="352" r="27" fill="#2DD4BF"/>
+</svg>

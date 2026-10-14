@@ -14,6 +14,9 @@
 <meta property="og:image" content="https://wearetheartmakers.github.io/modPAY/assets/img/og-en.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#070d1d">
+<link rel="icon" href="../favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" type="image/svg+xml" href="../assets/icon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
 <link rel="stylesheet" href="../assets/site.css">
 </head>
 <body>
@@ -21,7 +24,7 @@
 <header><div class="wrap">
 <a class="brand" href="./">mod<span>PAY</span></a>
 <nav aria-label="Main menu">
-<a href="#ozellikler">Features</a><a href="#nasil">How it works</a><a href="#guvenlik">Security</a><a href="#teknoloji">Technology</a><a href="#pilot">Pilot</a>
+<a href="#story">Story</a><a href="#ozellikler">Features</a><a href="#nasil">How it works</a><a href="#guvenlik">Security</a><a href="#teknoloji">Technology</a><a href="#pilot">Pilot</a>
 <a class="lang" href="../" hreflang="tr">TR</a>
 <a class="btn" href="mailto:info@wearetheartmakers.com?subject=modPAY%20pilot">Request a pilot</a>
 </nav></div></header>
@@ -34,9 +37,26 @@
 <div class="video" id="video"><video controls preload="metadata" playsinline poster="../assets/video/poster.jpg" aria-label="modPAY intro video"><source src="../assets/video/modpay-intro.mp4" type="video/mp4"></video></div>
 </div></div>
 
+<section id="story"><div class="wrap">
+<h2>Keeping keys safe is not enough</h2>
+<div class="story"><div>
+<blockquote>Is securing digital assets only about storing private keys? Or is the real question how transactions are authorized, verified and recorded?</blockquote>
+<p>In early 2025, about 1.5 billion dollars were taken from a major exchange's cold wallet. No private key was stolen; the hardware wallets were in place. The signers approved a transaction that looked routine on screen, but the data they signed handed control of the wallet to the attacker. Every day, people lose assets the same way: by signing a transfer to a "poisoned" address that resembles one from their history, or an unlimited token approval.</p>
+<p>That thought shaped modPAY. It rests on three principles:</p>
+<ol>
+<li><strong>Your keys stay with you.</strong> Recovery phrases and keys never leave the device; the server and its administrators cannot reach them.</li>
+<li><strong>You sign what you see.</strong> <em>Signing Guard</em> decodes the signed transaction on the device and compares network, recipient, amount, token, fee and signer with what was on screen. Any difference and nothing is sent. The wallet signs plain transfers only: no approvals, hidden contract calls or delegations.</li>
+<li><strong>Nothing is booked until the chain confirms it.</strong> Payments and refunds reach the ledger only after on-chain confirmation.</li>
+</ol>
+<p><strong>Safe without being tiring:</strong> no extra step for verified merchants, your own accounts or addresses you paid before. A first-time recipient asks for the last 4 characters of the address; a lookalike of an address in your history asks for 8. Addresses are shown in easy-to-compare groups of four.</p>
+<p class="small">modPAY does not recover stolen assets and does not claim it would have prevented any past attack. Signing Guard catches differences between what the app showed and what was signed; it does not replace on-device clear signing in a hardware wallet or an independent security audit.</p>
+</div>
+<div class="imgs"><img loading="lazy" src="../assets/img/guard-lookalike.jpg" alt="Signing Guard: possible address poisoning warning"><img class="phone" loading="lazy" src="../assets/img/guard-mobile.jpg" alt="New recipient on a phone: type the last 4 characters"></div>
+</div></div></section>
+
 <section id="ozellikler"><div class="wrap">
 <h2>Features</h2>
-<div class="grid"><div class="card"><h3>Keys stay with the user</h3><p>Recovery phrases and keys never leave the device; encrypted with Argon2id + AES-256-GCM. No administrator can access them.</p></div><div class="card"><h3>QR payments</h3><p>Enter an amount, get a QR. Customers pay in modPAY or any wallet such as MetaMask (EIP-681).</p></div><div class="card"><h3>On-chain proof</h3><p>A payment is confirmed only at the network's confirmation depth. Reorgs, partial and late payments get their own states.</p></div><div class="card"><h3>Accounting-ready</h3><p>Append-only double-entry ledger, reconciliation and trial balance. Every final payment posts automatically; exact-precision CSV exports for accounting.</p></div><div class="card"><h3>Refunds</h3><p>Signed by the merchant in their own wallet; booked once the exact transfer is verified on-chain.</p></div><div class="card"><h3>Teams and integrations</h3><p>Organizations, roles, email invitations, signed webhooks and two-factor authentication.</p></div></div>
+<div class="grid"><div class="card"><h3>Signing Guard</h3><p>The signed transaction is decoded on the device and compared with the screen; any difference and it is not sent. Warnings for address poisoning and hidden approvals.</p></div><div class="card"><h3>Keys stay with the user</h3><p>Recovery phrases and keys never leave the device; encrypted with Argon2id + AES-256-GCM. No administrator can access them.</p></div><div class="card"><h3>QR payments</h3><p>Enter an amount, get a QR. Customers pay in modPAY or any wallet such as MetaMask (EIP-681).</p></div><div class="card"><h3>On-chain proof</h3><p>A payment is confirmed only at the network's confirmation depth. Reorgs, partial and late payments get their own states.</p></div><div class="card"><h3>Accounting-ready</h3><p>Append-only double-entry ledger, reconciliation and trial balance. Every final payment posts automatically; exact-precision CSV exports for accounting.</p></div><div class="card"><h3>Refunds</h3><p>Signed by the merchant in their own wallet; booked once the exact transfer is verified on-chain.</p></div><div class="card"><h3>Teams and integrations</h3><p>Organizations, roles, email invitations, signed webhooks and two-factor authentication.</p></div></div>
 </div></section>
 
 <section><div class="wrap">

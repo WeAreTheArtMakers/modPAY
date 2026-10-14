@@ -34,3 +34,13 @@
 ## İddia edilmeyenler
 
 Bağımsız güvenlik denetimi yapılmamıştır. PCI DSS, SOC 2, ISO 27001 sertifikası, lisans, KYC/AML ya da yaptırım taraması yoktur. Gerçek varlıklarla kullanım öncesinde bağımsız güvenlik testi ve hukuki/düzenleyici değerlendirme gerekir.
+
+## İmza Koruması (ne görürseniz onu imzalarsınız)
+
+Büyük kayıpların bir kısmı anahtar çalınmadan, imzacılara gösterilen işlem ile imzalanan işlemin farklı olmasıyla yaşandı. modPAY bu yüzden:
+
+- İmzadan sonra, ağa göndermeden önce imzalı işlemi cihazda çözer, imzacıyı geri hesaplar ve ağ, nonce, gas, ücret, alıcı, tutar ve token kontratını kullanıcının onayladığı değerlerle tek tek karşılaştırır. Tek bir fark varsa işlem gönderilmez.
+- Yalnızca iki tür işlem imzalar: düz ETH transferi ve ERC-20 `transfer(alıcı, tutar)`; sonuna eklenmiş bayt, token onayı (`approve`), `setApprovalForAll`, başka kontrat çağrısı, erişim listesi ya da yetki devri (EIP-7702) imzalanmaz.
+- Alıcıyı değerlendirir: sahipliği imzayla kanıtlanmış satıcı ve iadede asıl ödeyen "doğrulanmış" gösterilir; kendi hesaplarınız ve daha önce gönderdiğiniz adresler ek adım istemez; yeni alıcıda adresin son 4, geçmişteki bir adresle aynı başlayıp biten (adres zehirleme) adreste son 8 karakter yazılmadan onay açılmaz; sıfır adres ve token kontratları reddedilir.
+
+Sınır: İmza Koruması uygulamanın kendi kodunda çalışır. Sunulan uygulama kodunun kendisi ele geçirilirse (tedarik zinciri saldırısı) koruma da etkisizleştirilebilir; buna karşı katı CSP, değişmez sürümler ve bağımsız denetim gerekir. Donanım cüzdanın kendi ekranında doğrulamanın yerini tutmaz.
