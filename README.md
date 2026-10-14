@@ -4,7 +4,7 @@
 
 **modPAY**, kendi anahtarınızı tuttuğunuz (non-custodial) bir dijital cüzdan, QR ile token ödeme altyapısı ve kurumsal finansal işlem yönetimi platformudur. Ödeme tarayıcıda imzalanır, zincirde doğrulanır ve SQL Server'da çift taraflı, değiştirilemez bir deftere işlenir.
 
-[Tanıtım sitesi](https://wearetheartmakers.github.io/modPAY/) · [Tanıtım videosu](docs/assets/video/modpay-intro.mp4) · [English](README.en.md) · [Ticari lisans](COMMERCIAL_LICENSING.md) · **info@wearetheartmakers.com** · +90 505 314 9360
+[Tanıtım sitesi](https://wearetheartmakers.github.io/modPAY/) · [**Canlı demo**](https://modpay.runasp.net) (test ağları) · [Tanıtım videosu](docs/assets/video/modpay-intro.mp4) · [English](README.en.md) · [Ticari lisans](COMMERCIAL_LICENSING.md) · **info@wearetheartmakers.com** · +90 505 314 9360
 
 > Bu depo modPAY'in tanıtım sayfasıdır; yazılımın kaynak kodunu içermez. modPAY, WATAM'ın tescilli ürünüdür ve lisansla kullanılır. Şu an **yalnızca test ağlarında** çalışır; bağımsız güvenlik denetiminden geçmemiştir.
 
