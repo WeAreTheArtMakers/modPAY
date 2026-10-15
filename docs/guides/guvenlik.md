@@ -33,7 +33,7 @@
 
 ## İddia edilmeyenler
 
-Bağımsız güvenlik denetimi yapılmamıştır. PCI DSS, SOC 2, ISO 27001 sertifikası, lisans, KYC/AML ya da yaptırım taraması yoktur. Gerçek varlıklarla kullanım öncesinde bağımsız güvenlik testi ve hukuki/düzenleyici değerlendirme gerekir.
+Uyum durumu: güvenlik kontrolleri SOC 2 ve ISO/IEC 27001:2022 ile eşlenmiştir (hazırlık; sertifika bağımsız denetçi tarafından verilir). Kart verisi işlenmediği için PCI DSS kapsamı dışındadır. Lisans, KYC/AML ve yaptırım taraması kapsamı müşterinin iş modeline göre hukuki değerlendirmeyle belirlenir. Gerçek varlıklarla kullanım öncesinde bağımsız güvenlik testi ve hukuki/düzenleyici değerlendirme gerekir.
 
 ## İmza Koruması (ne görürseniz onu imzalarsınız)
 

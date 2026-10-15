@@ -1,5 +1,13 @@
 # Sürüm notları / release notes
 
+## v0.7.0 — Çok ağlı ödeme, Avalanche ve uyum hazırlığı / multi-network checkout, Avalanche, compliance readiness (15 Ekim 2026)
+
+- **Çok ağlı ödeme:** tek fatura birden fazla ağda; müşteri ağı seçer, ilk ödeme diğerlerini kapatır (aynı varlık ya da USDC/USDT 1:1, kur yok). Canlı ortamda BNB Smart Chain'de ödenip Avalanche seçeneğinin kapandığı doğrulandı.
+- **Avalanche C-Chain (Fuji):** AVAX ve USDC.
+- **Dayanıklılık:** paylaşımlı barındırmada BSC log taramasının takıldığı hata bulundu ve düzeltildi (uyarlanabilir blok aralığı, sağlayıcı sınırı hatasında yedeğe geçiş, yeni sağlayıcılar).
+- **Uyum hazırlığı:** SOC 2 ve ISO/IEC 27001:2022 kontrol matrisi (kanıtlarıyla), politika taslakları, risk kaydı, olay müdahale planı; PCI DSS kapsam dışı beyanı.
+- **Multi-network checkout**, Avalanche Fuji, BSC log-scanning fix on shared hosting, SOC 2 / ISO 27001 readiness pack.
+
 ## v0.6.0 — BNB Smart Chain, KVKK ve Lite / BNB Smart Chain, privacy and Lite (15 Ekim 2026)
 
 - **BNB Smart Chain Testnet:** BNB, USDT ve USDC (18 ondalık) ile ödeme; hızlı bloklar için paralel blok tarama; 15 onay.

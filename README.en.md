@@ -6,7 +6,7 @@
 
 [Website](https://wearetheartmakers.github.io/modPAY/en/) · [**Live demo**](https://modpay.runasp.net) (testnets) · [Intro video](docs/assets/video/modpay-intro.mp4) · [Türkçe](README.md) · [Commercial licensing](COMMERCIAL_LICENSING.md) · **info@wearetheartmakers.com** · +90 505 314 9360
 
-> This repository is the product page of modPAY; it contains no source code. modPAY is proprietary software of WATAM, licensed under a written agreement. It currently runs **on test networks only** and has not had an independent security audit.
+> This repository is the product page of modPAY; it contains no source code. modPAY is proprietary software of WATAM, licensed under a written agreement. It currently runs **on test networks**; mainnet stays disabled until an independent security audit is completed.
 
 ## The story: keeping keys safe is not enough
 
@@ -31,6 +31,7 @@ That thought shaped modPAY: **your keys stay with you**, **you sign what you see
 | **Accounting-ready** | Every final payment posts a double-entry record in SQL Server (Dr 1010 / Cr 4010). Ledger rows cannot be edited (database triggers); reconciliation compares requests, transfers, chain observations and the ledger. Payment requests and the journal export to CSV for accounting/ERP with exact amounts. |
 | **Refunds** | The merchant signs refunds in their own wallet; a refund is booked (Dr 4090 / Cr 1010) only after the exact transfer is verified on-chain. |
 | **Teams and integrations** | Organizations with Owner/Admin/Finance/Viewer roles and email invitations; HMAC-signed webhooks to your ERP; authenticator-app 2FA. |
+| **Multi-network checkout** | One invoice payable on several networks; the customer picks the network they hold funds on and the first payment closes the others. Same asset or USD stablecoins (USDC/USDT 1:1); no bridge, no FX risk. Networks: Ethereum, BNB Smart Chain, Avalanche C-Chain, Polygon, Arbitrum (testnets). |
 | **KVKK / GDPR** | Users can erase their own account (personal data anonymized, financial records kept for legal retention); privacy notice, terms and cookie notice in the app. Strictly necessary cookies only. |
 | **Enterprise stack** | .NET 10, Angular, SQL Server, RabbitMQ, Redis, Hangfire; Docker and Kubernetes (Helm). |
 
@@ -58,8 +59,8 @@ Angular 22 · TypeScript · PWA · C# / ASP.NET Core (.NET 10) · Microsoft SQL 
 
 ## Status and limits
 
-- Test networks (Sepolia, BNB Smart Chain Testnet, Polygon Amoy, Arbitrum Sepolia) and a local devnet are enabled; **mainnet broadcasting is disabled**.
-- No independent security audit yet; **no** PCI DSS, SOC 2 or ISO 27001 certification.
+- Test networks (Sepolia, BNB Smart Chain Testnet, Avalanche Fuji, Polygon Amoy, Arbitrum Sepolia) and a local devnet are enabled; **mainnet broadcasting is disabled**.
+- **Compliance readiness:** controls mapped to SOC 2 and ISO/IEC 27001:2022 with evidence; certification is issued by independent auditors. No card data → outside PCI DSS scope. Mainnet stays disabled until an independent security audit is completed.
 - modPAY is not a bank, payment institution, exchange or custodian; live use with real assets requires the customer's own legal and regulatory assessment.
 
 ## Contact

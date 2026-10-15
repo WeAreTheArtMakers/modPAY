@@ -6,7 +6,7 @@
 
 [Tanıtım sitesi](https://wearetheartmakers.github.io/modPAY/) · [**Canlı demo**](https://modpay.runasp.net) (test ağları) · [Tanıtım videosu](docs/assets/video/modpay-intro.mp4) · [English](README.en.md) · [Ticari lisans](COMMERCIAL_LICENSING.md) · **info@wearetheartmakers.com** · +90 505 314 9360
 
-> Bu depo modPAY'in tanıtım sayfasıdır; yazılımın kaynak kodunu içermez. modPAY, WATAM'ın tescilli ürünüdür ve lisansla kullanılır. Şu an **yalnızca test ağlarında** çalışır; bağımsız güvenlik denetiminden geçmemiştir.
+> Bu depo modPAY'in tanıtım sayfasıdır; yazılımın kaynak kodunu içermez. modPAY, WATAM'ın tescilli ürünüdür ve lisansla kullanılır. Şu an **test ağlarında** çalışır; ana ağ, bağımsız güvenlik denetimi tamamlanana kadar kapalı tutulur.
 
 ## Hikâye: anahtarı saklamak yetmiyor
 
@@ -31,6 +31,7 @@ Bu düşünce modPAY'in şekillenmesine katkı sağladı: **anahtar sizde**, **n
 | **Muhasebeye hazır** | Her kesinleşen ödeme SQL Server'da otomatik çift taraflı kayıt üretir (Dr 1010 / Cr 4010). Kayıtlar veritabanı tetikleyicisiyle değiştirilemez; mutabakat raporu talep, transfer, zincir gözlemi ve defteri karşılaştırır. Ödeme talepleri ve yevmiye kayıtları tam hassasiyetle CSV olarak muhasebe/ERP'ye aktarılır. |
 | **İade** | Satıcı iadeyi kendi cüzdanında imzalar; iade, tam tutar zincirde doğrulanınca deftere işlenir (Dr 4090 / Cr 1010). |
 | **Ekip ve entegrasyon** | Organizasyonlar ve roller (Sahip, Yönetici, Finans, İzleyici), e-posta daveti; ERP'nize HMAC imzalı webhook'lar; iki adımlı doğrulama. |
+| **Çok ağlı ödeme** | Tek fatura birden fazla ağda ödenebilir; müşteri varlığının olduğu ağı seçer, ilk ödeme diğer seçenekleri kapatır. Aynı varlık ya da USD stabil koinler (USDC/USDT 1:1); köprü ve kur riski yok. Ağlar: Ethereum, BNB Smart Chain, Avalanche C-Chain, Polygon, Arbitrum (test ağları). |
 | **KVKK / GDPR** | Kullanıcı hesabını kendisi silebilir (kişisel veriler anonimleştirilir, mali kayıtlar yasal saklama için korunur); aydınlatma metni, kullanım koşulları ve çerez bilgisi uygulamada. Yalnızca zorunlu çerezler. |
 | **Kurumsal altyapı** | .NET 10, Angular, SQL Server, RabbitMQ, Redis, Hangfire; Docker ve Kubernetes (Helm). Küçük kurulumlar için tek süreçli **Lite** paketi (Redis/RabbitMQ gerekmez, ~120 MB bellek). |
 
@@ -88,8 +89,8 @@ Bu düşünce modPAY'in şekillenmesine katkı sağladı: **anahtar sizde**, **n
 
 ## Durum ve sınırlar
 
-- Test ağları (Sepolia, BNB Smart Chain Testnet, Polygon Amoy, Arbitrum Sepolia) ve yerel devnet etkin; **ana ağda işlem gönderimi kapalıdır**.
-- Bağımsız güvenlik denetimi yapılmadı; PCI DSS, SOC 2, ISO 27001 gibi sertifikalar **yoktur**.
+- Test ağları (Sepolia, BNB Smart Chain Testnet, Avalanche Fuji, Polygon Amoy, Arbitrum Sepolia) ve yerel devnet etkin; **ana ağda işlem gönderimi kapalıdır**.
+- **Uyum hazırlığı:** kontroller SOC 2 ve ISO/IEC 27001:2022 ile eşlendi (kanıtlarıyla); sertifika bağımsız denetimle alınır. Kart verisi işlenmez → PCI DSS kapsamı dışında. Ana ağ, bağımsız güvenlik denetimi tamamlanana kadar kapalı.
 - modPAY bir banka, ödeme kuruluşu, borsa ya da saklayıcı değildir; gerçek varlıklarla kullanım, müşterinin hukuki ve düzenleyici değerlendirmesini gerektirir.
 
 ## İletişim
