@@ -6,7 +6,7 @@
 
 [Tanıtım sitesi](https://wearetheartmakers.github.io/modPAY/) · [**Canlı demo**](https://modpay.runasp.net) (test ağları) · [Tanıtım videosu](docs/assets/video/modpay-intro.mp4) · [English](README.en.md) · [Ticari lisans](COMMERCIAL_LICENSING.md) · **info@wearetheartmakers.com** · +90 505 314 9360
 
-> Bu depo modPAY'in tanıtım sayfasıdır; yazılımın kaynak kodunu içermez. modPAY, WATAM'ın tescilli ürünüdür ve lisansla kullanılır. Şu an **test ağlarında** çalışır; ana ağ, bağımsız güvenlik denetimi tamamlanana kadar kapalı tutulur.
+> Bu depo modPAY'in tanıtım sayfasıdır; yazılımın kaynak kodunu içermez. modPAY, WATAM'ın tescilli ürünüdür ve lisansla kullanılır. Şu an **test ağlarında** canlıdır; güvenlik incelemesi tamamlandı ve bulgular düzeltildi, ana ağ üçüncü taraf denetimi sonrası açılır.
 
 ## Hikâye: anahtarı saklamak yetmiyor
 
@@ -90,6 +90,7 @@ Bu düşünce modPAY'in şekillenmesine katkı sağladı: **anahtar sizde**, **n
 ## Durum ve sınırlar
 
 - Test ağları (Sepolia, BNB Smart Chain Testnet, Avalanche Fuji, Polygon Amoy, Arbitrum Sepolia) ve yerel devnet etkin; **ana ağda işlem gönderimi kapalıdır**.
+- **E-ticaret API'si ve kasa ekranı:** API anahtarlarıyla sunucudan fatura, ödeme sonrası mağazaya dönüş; POS ekranında tek QR.
 - **Uyum hazırlığı:** kontroller SOC 2 ve ISO/IEC 27001:2022 ile eşlendi (kanıtlarıyla); sertifika bağımsız denetimle alınır. Kart verisi işlenmez → PCI DSS kapsamı dışında. Ana ağ, bağımsız güvenlik denetimi tamamlanana kadar kapalı.
 - modPAY bir banka, ödeme kuruluşu, borsa ya da saklayıcı değildir; gerçek varlıklarla kullanım, müşterinin hukuki ve düzenleyici değerlendirmesini gerektirir.
 

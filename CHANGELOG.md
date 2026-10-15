@@ -1,5 +1,12 @@
 # Sürüm notları / release notes
 
+## v0.8.0 — E-ticaret API'si, kasa ekranı ve güvenlik incelemesi / merchant API, POS and security review (15 Ekim 2026)
+
+- **E-ticaret API'si:** çalışma alanına bağlı API anahtarları (`mpk_test_…`, SHA-256 özetiyle saklanır, anında iptal); sunucudan fatura/çok ağlı ödeme açma, durum, mutabakat ve CSV; ödeme sonrası mağazaya dönüş bağlantısı. Canlı ortamda uçtan uca doğrulandı.
+- **Kasa ekranı (POS):** tutar gir → tek QR → ödeme kesinleşince onay.
+- **Güvenlik incelemesi:** dört bağımsız inceleme ajanı (backend, cüzdan, altyapı, uyum kanıtı). 2 yüksek bulgu (ödeme ipucuyla fatura kaydırma; doğrulanmış satıcı varsayımının benzer adres kontrolünü atlaması) ve 9 orta bulgunun 6’sı düzeltildi (kalan 3 altyapı maddesi takipte); regresyon testleri eski kodda başarısız oluyor. CI eylemleri SHA ile sabitlendi, tüm imajlar Trivy ile taranıyor, Dependabot açık.
+- **Merchant API**, POS screen, multi-agent security review with fixes; SOC 2 / ISO 27001 control matrix verified row by row.
+
 ## v0.7.0 — Çok ağlı ödeme, Avalanche ve uyum hazırlığı / multi-network checkout, Avalanche, compliance readiness (15 Ekim 2026)
 
 - **Çok ağlı ödeme:** tek fatura birden fazla ağda; müşteri ağı seçer, ilk ödeme diğerlerini kapatır (aynı varlık ya da USDC/USDT 1:1, kur yok). Canlı ortamda BNB Smart Chain'de ödenip Avalanche seçeneğinin kapandığı doğrulandı.
