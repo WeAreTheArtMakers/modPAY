@@ -33,7 +33,6 @@
 <h1>Anahtar sizde.<br>Ödeme zincirde.<br>Kayıt defterde.</h1>
 <p class="lead">modPAY; kendi anahtarınızı tuttuğunuz bir dijital cüzdan, QR ile token ödeme altyapısı ve kurumsal ödeme yönetimi platformudur. Ödeme tarayıcıda imzalanır, zincirde doğrulanır ve SQL Server'da değiştirilemez bir deftere işlenir.</p>
 <div class="actions"><a class="btn" href="mailto:info@wearetheartmakers.com?subject=modPAY%20pilot">Pilot isteyin</a><a class="btn ghost" href="https://modpay.runasp.net" target="_blank" rel="noopener">Canlı demoyu deneyin</a><a class="btn ghost" href="#video">Videoyu izleyin</a></div>
-<p class="note">Test ağlarında canlı. Güvenlik incelemesi tamamlandı: dört ayrı inceleme ajanı kodu birbirinden bağımsız taradı, 2 yüksek bulgunun tamamı ve 9 orta bulgunun 6’sı düzeltilip regresyon testleriyle kilitlendi; kalan 3 üretim altyapısı maddesi takipte. 20 güvenlik kontrolü SOC 2 ve ISO/IEC 27001 çerçevelerine kanıtlarıyla eşlendi. Ana ağ, üçüncü taraf denetimi sonrası açılır. modPAY bir banka, ödeme kuruluşu ya da saklayıcı değildir.</p>
 <div class="video" id="video"><video controls preload="metadata" playsinline poster="assets/video/poster.jpg" aria-label="modPAY tanıtım videosu (İngilizce)"><source src="assets/video/modpay-intro.mp4" type="video/mp4"></video></div>
 </div></div>
 
@@ -49,7 +48,6 @@
 <li><strong>Zincirde doğrulanmadan kayıt yok.</strong> Ödeme ve iade, transfer zincirde onay derinliğine ulaşınca deftere işlenir.</li>
 </ol>
 <p><strong>Güvenli ama yorucu değil:</strong> doğrulanmış satıcıya, kendi hesaplarınıza ve daha önce gönderdiğiniz adreslere ek adım yok. Yeni bir alıcıda adresin son 4 karakterini, geçmişinizdeki bir adrese benzeyen (zehirli) adreste 8 karakterini yazmanız istenir. Adresler, karşılaştırması kolay 4'lü gruplar halinde gösterilir.</p>
-<p class="small">modPAY çalınmış varlıkları geri getirmez ve yaşanmış bir saldırıyı önleyeceğini iddia etmez. İmza Koruması, uygulama içinde ekranda gösterilen ile imzalanan arasındaki farkı yakalar; donanım cüzdanın kendi ekranında doğrulamanın ve bağımsız güvenlik denetiminin yerini tutmaz.</p>
 </div>
 <div class="imgs"><img loading="lazy" src="assets/img/guard-lookalike.jpg" alt="İmza Koruması: olası adres zehirleme uyarısı"><img class="phone" loading="lazy" src="assets/img/guard-mobile.jpg" alt="Telefonda yeni alıcı onayı: adresin son 4 karakteri"></div>
 </div></div></section>
@@ -73,7 +71,7 @@
 <section id="guvenlik"><div class="wrap">
 <h2>Güvenlik</h2>
 <div class="grid"><div class="card"><h3>Cihazda şifreleme</h3><p>Argon2id + AES-256-GCM; otomatik kilit; dışa aktarma için yeniden şifre.</p></div><div class="card"><h3>Açık onay</h3><p>Hiçbir işlem, kullanıcı değerleri görüp onaylamadan imzalanmaz.</p></div><div class="card"><h3>Sertleştirilmiş oturum</h3><p>HttpOnly, Secure, SameSite=Strict çerez; CSRF; kilitleme; istek sınırları; TOTP.</p></div><div class="card"><h3>Değiştirilemez kayıt</h3><p>Defter ve denetim kayıtları veritabanı tetikleyicileriyle korunur.</p></div><div class="card"><h3>Katı CSP</h3><p>Yalnızca aynı köken; satır içi betik ve stil yok.</p></div><div class="card"><h3>Kubernetes</h3><p>Root olmayan, salt okunur konteynerler; NetworkPolicy; kısıtlı Pod Security.</p></div></div>
-<p class="note" style="margin-top:20px">Uyum: kontroller SOC 2 ve ISO/IEC 27001:2022 ile eşlenmiştir (hazırlık; sertifika bağımsız denetçi tarafından verilir). modPAY kart verisi saklamaz, işlemez ya da iletmez; bu nedenle PCI DSS kapsamında değildir. KVKK/GDPR: aydınlatma metni, hesap silme ve saklama süreleri uygulamada. Güvenlik inceleme raporu ve kontrol matrisi lisans görüşmelerinde paylaşılır.</p>
+<p class="note" style="margin-top:20px">Uyum: kontroller SOC 2 ve ISO/IEC 27001:2022 ile eşlenmiştir. modPAY kart verisi saklamaz, işlemez ya da iletmez; bu nedenle PCI DSS kapsamında değildir. KVKK/GDPR: aydınlatma metni, hesap silme ve saklama süreleri uygulamada. Güvenlik inceleme raporu ve kontrol matrisi lisans görüşmelerinde paylaşılır.</p>
 </div></section>
 
 <section id="teknoloji"><div class="wrap">

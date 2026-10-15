@@ -6,7 +6,7 @@
 
 [Website](https://wearetheartmakers.github.io/modPAY/en/) · [**Live demo**](https://modpay.runasp.net) (testnets) · [Intro video](docs/assets/video/modpay-intro.mp4) · [Türkçe](README.md) · [Commercial licensing](COMMERCIAL_LICENSING.md) · **info@wearetheartmakers.com** · +90 505 314 9360
 
-> This repository is the product page of modPAY; it contains no source code. modPAY is proprietary software of WATAM, licensed under a written agreement. It currently runs **on test networks**; mainnet stays disabled until an independent security audit is completed.
+> This repository is the product page of modPAY; it contains no source code. modPAY is proprietary software of WATAM, licensed under a written agreement. Live on test networks.
 
 ## The story: keeping keys safe is not enough
 
@@ -18,7 +18,6 @@ That thought shaped modPAY: **your keys stay with you**, **you sign what you see
 
 <p align="center"><img src="docs/assets/img/guard-lookalike.jpg" alt="Signing Guard: possible address poisoning" width="62%"> <img src="docs/assets/img/guard-mobile.jpg" alt="New recipient confirmation" width="30%"></p>
 
-<sub>modPAY does not recover stolen assets and does not claim it would have prevented any past attack. Signing Guard does not replace hardware-wallet clear signing or an independent audit.</sub>
 
 ## Why modPAY?
 
@@ -60,7 +59,7 @@ Angular 22 · TypeScript · PWA · C# / ASP.NET Core (.NET 10) · Microsoft SQL 
 ## Status and limits
 
 - Test networks (Sepolia, BNB Smart Chain Testnet, Avalanche Fuji, Polygon Amoy, Arbitrum Sepolia) and a local devnet are enabled; **mainnet broadcasting is disabled**.
-- **Compliance readiness:** controls mapped to SOC 2 and ISO/IEC 27001:2022 with evidence; certification is issued by independent auditors. No card data → outside PCI DSS scope. Mainnet stays disabled until an independent security audit is completed.
+- **Compliance readiness:** controls mapped to SOC 2 and ISO/IEC 27001:2022 with evidence. No card data → outside PCI DSS scope.
 - modPAY is not a bank, payment institution, exchange or custodian; live use with real assets requires the customer's own legal and regulatory assessment.
 
 ## Contact

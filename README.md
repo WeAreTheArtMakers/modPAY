@@ -6,7 +6,7 @@
 
 [Tanıtım sitesi](https://wearetheartmakers.github.io/modPAY/) · [**Canlı demo**](https://modpay.runasp.net) (test ağları) · [Tanıtım videosu](docs/assets/video/modpay-intro.mp4) · [English](README.en.md) · [Ticari lisans](COMMERCIAL_LICENSING.md) · **info@wearetheartmakers.com** · +90 505 314 9360
 
-> Bu depo modPAY'in tanıtım sayfasıdır; yazılımın kaynak kodunu içermez. modPAY, WATAM'ın tescilli ürünüdür ve lisansla kullanılır. Şu an **test ağlarında** canlıdır; güvenlik incelemesi tamamlandı ve bulgular düzeltildi, ana ağ üçüncü taraf denetimi sonrası açılır.
+> Bu depo modPAY'in tanıtım sayfasıdır; yazılımın kaynak kodunu içermez. modPAY, WATAM'ın tescilli ürünüdür ve lisansla kullanılır. Test ağlarında canlıdır.
 
 ## Hikâye: anahtarı saklamak yetmiyor
 
@@ -18,7 +18,6 @@ Bu düşünce modPAY'in şekillenmesine katkı sağladı: **anahtar sizde**, **n
 
 <p align="center"><img src="docs/assets/img/guard-lookalike.jpg" alt="İmza Koruması: olası adres zehirleme" width="62%"> <img src="docs/assets/img/guard-mobile.jpg" alt="Yeni alıcı onayı" width="30%"></p>
 
-<sub>modPAY çalınmış varlıkları geri getirmez ve yaşanmış bir saldırıyı önleyeceğini iddia etmez. İmza Koruması donanım cüzdanda ekranda doğrulamanın ve bağımsız denetimin yerini tutmaz.</sub>
 
 ## Neden modPAY?
 
@@ -91,7 +90,7 @@ Bu düşünce modPAY'in şekillenmesine katkı sağladı: **anahtar sizde**, **n
 
 - Test ağları (Sepolia, BNB Smart Chain Testnet, Avalanche Fuji, Polygon Amoy, Arbitrum Sepolia) ve yerel devnet etkin; **ana ağda işlem gönderimi kapalıdır**.
 - **E-ticaret API'si ve kasa ekranı:** API anahtarlarıyla sunucudan fatura, ödeme sonrası mağazaya dönüş; POS ekranında tek QR.
-- **Uyum hazırlığı:** kontroller SOC 2 ve ISO/IEC 27001:2022 ile eşlendi (kanıtlarıyla); sertifika bağımsız denetimle alınır. Kart verisi işlenmez → PCI DSS kapsamı dışında. Ana ağ, bağımsız güvenlik denetimi tamamlanana kadar kapalı.
+- **Uyum hazırlığı:** kontroller SOC 2 ve ISO/IEC 27001:2022 ile eşlendi (kanıtlarıyla). Kart verisi işlenmez → PCI DSS kapsamı dışında.
 - modPAY bir banka, ödeme kuruluşu, borsa ya da saklayıcı değildir; gerçek varlıklarla kullanım, müşterinin hukuki ve düzenleyici değerlendirmesini gerektirir.
 
 ## İletişim

@@ -33,7 +33,6 @@
 <h1>Your keys.<br>On-chain proof.<br>Books that balance.</h1>
 <p class="lead">modPAY is a non-custodial digital wallet, QR token-payment infrastructure and payment-operations platform for business. Payments are signed in the browser, verified on-chain and posted to an append-only ledger in SQL Server.</p>
 <div class="actions"><a class="btn" href="mailto:info@wearetheartmakers.com?subject=modPAY%20pilot">Request a pilot</a><a class="btn ghost" href="https://modpay.runasp.net" target="_blank" rel="noopener">Try the live demo</a><a class="btn ghost" href="#video">Watch the video</a></div>
-<p class="note">Live on test networks. Security review completed: four separate review agents examined the code independently; both high findings and 6 of 9 medium findings were fixed and locked in with regression tests; 3 production-infrastructure items are tracked. 20 security controls are mapped to SOC 2 and ISO/IEC 27001 with evidence. Mainnet opens after a third-party audit. modPAY is not a bank, payment institution or custodian.</p>
 <div class="video" id="video"><video controls preload="metadata" playsinline poster="../assets/video/poster.jpg" aria-label="modPAY intro video"><source src="../assets/video/modpay-intro.mp4" type="video/mp4"></video></div>
 </div></div>
 
@@ -49,7 +48,6 @@
 <li><strong>Nothing is booked until the chain confirms it.</strong> Payments and refunds reach the ledger only after on-chain confirmation.</li>
 </ol>
 <p><strong>Safe without being tiring:</strong> no extra step for verified merchants, your own accounts or addresses you paid before. A first-time recipient asks for the last 4 characters of the address; a lookalike of an address in your history asks for 8. Addresses are shown in easy-to-compare groups of four.</p>
-<p class="small">modPAY does not recover stolen assets and does not claim it would have prevented any past attack. Signing Guard catches differences between what the app showed and what was signed; it does not replace on-device clear signing in a hardware wallet or an independent security audit.</p>
 </div>
 <div class="imgs"><img loading="lazy" src="../assets/img/guard-lookalike.jpg" alt="Signing Guard: possible address poisoning warning"><img class="phone" loading="lazy" src="../assets/img/guard-mobile.jpg" alt="New recipient on a phone: type the last 4 characters"></div>
 </div></div></section>
@@ -73,7 +71,7 @@
 <section id="guvenlik"><div class="wrap">
 <h2>Security</h2>
 <div class="grid"><div class="card"><h3>Encrypted on the device</h3><p>Argon2id + AES-256-GCM; auto-lock; password again for every export.</p></div><div class="card"><h3>Explicit consent</h3><p>No transaction is signed before the user reviews and confirms the values.</p></div><div class="card"><h3>Hardened sessions</h3><p>HttpOnly, Secure, SameSite=Strict cookies; CSRF; lockout; rate limits; TOTP.</p></div><div class="card"><h3>Immutable records</h3><p>Ledger and audit rows are protected by database triggers.</p></div><div class="card"><h3>Strict CSP</h3><p>Same-origin only; no inline scripts or styles.</p></div><div class="card"><h3>Kubernetes</h3><p>Non-root, read-only containers; NetworkPolicies; restricted Pod Security.</p></div></div>
-<p class="note" style="margin-top:20px">Compliance: controls mapped to SOC 2 and ISO/IEC 27001:2022 (readiness; certification is issued by independent auditors). modPAY does not store, process or transmit card data, so it is outside PCI DSS scope. KVKK/GDPR: privacy notice, self-service erasure and retention in the product. The security review report and control matrix are shared during licensing talks.</p>
+<p class="note" style="margin-top:20px">Compliance: controls mapped to SOC 2 and ISO/IEC 27001:2022. modPAY does not store, process or transmit card data, so it is outside PCI DSS scope. KVKK/GDPR: privacy notice, self-service erasure and retention in the product. The security review report and control matrix are shared during licensing talks.</p>
 </div></section>
 
 <section id="teknoloji"><div class="wrap">

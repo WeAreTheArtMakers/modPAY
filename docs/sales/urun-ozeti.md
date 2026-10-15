@@ -22,6 +22,6 @@
 
 ## Sınırlar
 
-Şu an yalnızca test ağları; bağımsız güvenlik denetimi ve düzenleyici değerlendirme canlıya geçiş öncesi gereklidir. modPAY ödeme kuruluşu ya da saklayıcı değildir.
+Şu an test ağlarında çalışır.
 
 İletişim: info@wearetheartmakers.com · +90 505 314 9360
