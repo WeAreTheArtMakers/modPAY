@@ -21,6 +21,9 @@
 | 8 | Mutabakat | Sıfır uyumsuzluk; borç = alacak |
 | 9 | Webhook | İmza doğrulanır; hatada yeniden deneme; teslimat günlüğü |
 | 10 | Organizasyon rolleri | İzleyici talep oluşturamaz; üye olmayan 404 alır |
+| 11 | Test tokenları | Yeni kullanıcı tek tıkla gas ve USDC alır; aynı gün ikinci talep reddedilir |
+| 12 | Başka ağdaki USDC ile fatura | Sepolia'da yakılan USDC Fuji'deki faturayı kapatır; basmayı modPAY yapar; fatura *Onaylandı* |
+| 13 | Kurumsal kimlik ve dil | Kurum adı/renk/logo yapılandırmadan gelir; arayüz Türkçe ve İngilizce |
 
 ## Teslimatlar
 

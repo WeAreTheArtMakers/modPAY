@@ -1,5 +1,14 @@
 # Sürüm notları / release notes
 
+## v0.11.0 — Başka ağdaki USDC ile fatura, Türkçe arayüz, kurumsal marka / cross-chain invoices, Turkish UI, white-label (15 Ekim 2026)
+
+- **Başka ağdaki USDC ile fatura:** canlı ortamda Avalanche Fuji'deki 0,5 USDC'lik fatura, Ethereum Sepolia'daki USDC ile ödendi; basma işlemini modPAY yaptı (Fuji işlemi 0xd76622…36e3), fatura zincir onayıyla kapandı. Ödeyene hedef ağda gas gerekmez.
+- **Türkçe arayüz:** tüm ekranlar Türkçe ve İngilizce; Türkçe tarayıcıda Türkçe açılır, TR/EN düğmesi.
+- **Kurumsal marka:** kurum adı, renkleri ve logosu yapılandırmadan; sayfa başlıkları dahil.
+- **Test tokenları sayfası:** beş test ağında gas ve USDC, canlı stok bilgisi; ana sayfada "2 dakikada deneyin".
+- **EURC:** Sepolia ve Fuji'de euro stablecoin.
+- **Cross-chain invoice payment** (relayed CCTP mint), full Turkish UI, white-label branding, test-token page, EURC.
+
 ## v0.10.0 — Tek tıkla demo ve gerçek test ağı transferleri / one-click demo, real testnet transfers (15 Ekim 2026)
 
 - **Tek tıkla demo:** cüzdan ekranında "Get test tokens": yeni kullanıcıya test ağı gas'ı ve USDC/USDT gönderilir (kullanıcı ve adres başına ağ başına günde bir; yalnızca test ağları).
