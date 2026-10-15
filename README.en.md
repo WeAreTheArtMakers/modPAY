@@ -59,6 +59,7 @@ Angular 22 · TypeScript · PWA · C# / ASP.NET Core (.NET 10) · Microsoft SQL 
 ## Status and limits
 
 - Test networks (Sepolia, BNB Smart Chain Testnet, Avalanche Fuji, Polygon Amoy, Arbitrum Sepolia) and a local devnet are enabled; **mainnet broadcasting is disabled**.
+- **Cross-chain USDC (Circle CCTP):** burned on one network, minted on another; funds stay in the user's wallet, every step is confirmed separately and verified on-chain by the server.
 - **Compliance readiness:** controls mapped to SOC 2 and ISO/IEC 27001:2022 with evidence. No card data → outside PCI DSS scope.
 - modPAY is not a bank, payment institution, exchange or custodian; live use with real assets requires the customer's own legal and regulatory assessment.
 

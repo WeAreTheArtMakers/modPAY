@@ -1,5 +1,12 @@
 # Sürüm notları / release notes
 
+## v0.9.0 — Ağlar arası USDC (Circle CCTP) / cross-chain USDC (15 Ekim 2026)
+
+- **Ağlar arası USDC:** Circle CCTP V2 ile saklamasız transfer (Ethereum Sepolia, Avalanche Fuji, Arbitrum Sepolia, Polygon Amoy). Kullanıcının cüzdanı tam tutarlı onay, yakma ve basma adımlarını ayrı ayrı imzalar; İmza Koruması yalnızca sabitlenmiş Circle kontratlarına giden bu üç çağrıyı, ekranda onaylanan değerlerden yeniden üretilen veriyle bayt bayt eşleşirse gönderir.
+- **Sunucu doğrulaması:** yakma işlemi zincirden, Circle onayı (attestation) yakılan mesajla alan alan, basma işlemi hedef zincirden doğrulanır; kayıtlar SQL Server'da tutulur. Canlı ortamda gerçek test ağı transferleriyle (Sepolia → Fuji, Sepolia → Arbitrum Sepolia) doğrulandı.
+- **Test:** gerçek Circle kontratlarını çalıştıran Sepolia ve Fuji çatallarında uçtan uca tarayıcı testi (12,5 USDC yakıldı ve basıldı).
+- **Cross-chain USDC** via Circle CCTP V2 (non-custodial, testnets) with Signing Guard support and server-side verification.
+
 ## v0.8.0 — E-ticaret API'si, kasa ekranı ve güvenlik incelemesi / merchant API, POS and security review (15 Ekim 2026)
 
 - **E-ticaret API'si:** çalışma alanına bağlı API anahtarları (`mpk_test_…`, SHA-256 özetiyle saklanır, anında iptal); sunucudan fatura/çok ağlı ödeme açma, durum, mutabakat ve CSV; ödeme sonrası mağazaya dönüş bağlantısı. Canlı ortamda uçtan uca doğrulandı.
