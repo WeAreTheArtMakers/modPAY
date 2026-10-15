@@ -1,5 +1,13 @@
 # Sürüm notları / release notes
 
+## v0.10.0 — Tek tıkla demo ve gerçek test ağı transferleri / one-click demo, real testnet transfers (15 Ekim 2026)
+
+- **Tek tıkla demo:** cüzdan ekranında "Get test tokens": yeni kullanıcıya test ağı gas'ı ve USDC/USDT gönderilir (kullanıcı ve adres başına ağ başına günde bir; yalnızca test ağları).
+- **Gerçek Sepolia ödemesi:** MetaMask'tan gelen ödeme zincirde algılandı, onaylandı, deftere işlendi; iade zincirde doğrulandı; mutabakat dengeli.
+- **Gerçek ağlar arası USDC:** canlı sitede tarayıcı cüzdanıyla 5 USDC Ethereum Sepolia'da yakıldı, Arbitrum Sepolia'da 4,9995 USDC basıldı (Circle hızlı transfer ücreti 0,0005 USDC).
+- **İmza Koruması düzeltmesi:** sıfır öncelik ücretli ağlarda (Arbitrum) yanlış alarm giderildi; regresyon testi eklendi. Yarıda kalan transferi yakma işlemi hash'iyle sürdürme.
+- **One-click demo faucet**, real Sepolia payment + refund, real Sepolia → Arbitrum Sepolia CCTP transfer through the live site.
+
 ## v0.9.0 — Ağlar arası USDC (Circle CCTP) / cross-chain USDC (15 Ekim 2026)
 
 - **Ağlar arası USDC:** Circle CCTP V2 ile saklamasız transfer (Ethereum Sepolia, Avalanche Fuji, Arbitrum Sepolia, Polygon Amoy). Kullanıcının cüzdanı tam tutarlı onay, yakma ve basma adımlarını ayrı ayrı imzalar; İmza Koruması yalnızca sabitlenmiş Circle kontratlarına giden bu üç çağrıyı, ekranda onaylanan değerlerden yeniden üretilen veriyle bayt bayt eşleşirse gönderir.
