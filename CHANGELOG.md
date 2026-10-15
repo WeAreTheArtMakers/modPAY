@@ -1,5 +1,15 @@
 # Sürüm notları / release notes
 
+## v0.12.0 — Kurumsal kontroller / enterprise controls (15 Ekim 2026)
+
+- **Hazine kuralları:** ödeme çıkışlarında token başına işlem ve gün limitleri, beyaz liste (ikinci yönetici onayıyla etkinleşir), dört göz onayı; kuralı gevşeten değişiklikler 24 saat bekler. Canlı ortamda gerçek Sepolia ödeme çıkışı: oluşturan onaylayamadı, ikinci yönetici onayladı, işlem zincirde doğrulanıp deftere işlendi.
+- **Çoklu imza ve donanım cüzdan:** Safe kasaları (sahiplik zincirde kontrol edilir), tarayıcı cüzdanı üzerinden Ledger/Trezor ile imza.
+- **AML/KYT taraması:** OFAC listesi, Chainalysis Sanctions API ya da kurumun KYT servisi; yaptırımlı adrese ödeme ve iade engellenir, şüpheli ödeyen faturayı incelemeye alır.
+- **Travel Rule:** eşik üstü ödemelerde IVMS101 kaydı şifreli saklanır, imzalı webhook ile Travel Rule sağlayıcısına gider.
+- **Kurumsal giriş:** OIDC ile tek oturum açma (Entra ID, Okta, Google, Keycloak; SAML aracı üzerinden), kurum geneli iki adımlı doğrulama zorunluluğu.
+- **ERP aktarımı:** SAP, Logo, Mikro ve genel CSV yevmiye şablonları, hesap eşlemesiyle.
+- **Enterprise controls:** treasury policy with four-eyes approval, Safe and hardware wallets, AML/KYT screening, Travel Rule, OIDC SSO, ERP exports.
+
 ## v0.11.0 — Başka ağdaki USDC ile fatura, Türkçe arayüz, kurumsal marka / cross-chain invoices, Turkish UI, white-label (15 Ekim 2026)
 
 - **Başka ağdaki USDC ile fatura:** canlı ortamda Avalanche Fuji'deki 0,5 USDC'lik fatura, Ethereum Sepolia'daki USDC ile ödendi; basma işlemini modPAY yaptı (Fuji işlemi 0xd76622…36e3), fatura zincir onayıyla kapandı. Ödeyene hedef ağda gas gerekmez.

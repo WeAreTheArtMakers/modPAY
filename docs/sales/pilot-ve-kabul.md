@@ -23,6 +23,12 @@
 | 10 | Organizasyon rolleri | İzleyici talep oluşturamaz; üye olmayan 404 alır |
 | 11 | Test tokenları | Yeni kullanıcı tek tıkla gas ve USDC alır; aynı gün ikinci talep reddedilir |
 | 12 | Başka ağdaki USDC ile fatura | Sepolia'da yakılan USDC Fuji'deki faturayı kapatır; basmayı modPAY yapar; fatura *Onaylandı* |
+| 14 | Dört göz onayı | Oluşturan kendi ödeme çıkışını onaylayamaz; ikinci kişi onaylar; zincirde doğrulanınca Dr 5010 / Cr 1010 |
+| 15 | Kural gevşetme | Limit artışı 24 saat sonra yürürlüğe girer; bu sürede iptal edilebilir |
+| 16 | Yaptırım taraması | OFAC listesindeki adrese ödeme çıkışı ve iade reddedilir; böyle bir ödeyenden gelen ödeme incelemeye düşer |
+| 17 | Travel Rule | Eşik üstü ödeme alıcı bilgisi olmadan oluşturulamaz; IVMS101 imzalı webhook ile iletilir |
+| 18 | Kurumsal giriş | Kurumun kimlik sağlayıcısıyla (OIDC) giriş; iki adımlı doğrulama zorunluluğu |
+| 19 | ERP | SAP/Logo/Mikro dosyası hesap eşlemesiyle üretilir ve muhasebe danışmanınca içe aktarılır |
 | 13 | Kurumsal kimlik ve dil | Kurum adı/renk/logo yapılandırmadan gelir; arayüz Türkçe ve İngilizce |
 
 ## Teslimatlar
