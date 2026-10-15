@@ -1,5 +1,14 @@
 # Sürüm notları / release notes
 
+## v0.13.0 — Ledger, bildirimler, iki yönlü Travel Rule, denetçi raporu / Ledger, push, two-way Travel Rule, auditor report (16 Ekim 2026)
+
+- **Yerleşik Ledger:** USB üzerinden doğrudan bağlantı (WebHID); transferler, ödeme çıkışları, ağlar arası işlemler ve sahiplik imzaları cihazda onaylanır; İmza Koruması her imzayı yine doğrular.
+- **Mobil bildirim:** onay bekleyen ödeme çıkışları, onay/ret, zincirde onay, gelen ödemeler, beyaz liste ve kural değişiklikleri (Web Push; şifreleme RFC 8291 örneğiyle bayt bayt doğrulandı).
+- **Gelen ödemelerde Travel Rule:** eşik üstü faturalarda ödeyen, ödemeden önce gönderen bilgilerini girer; bilgisiz ödeme incelemeye alınır; satıcı kayıtları görür ve imzalı webhook alır. Canlı ortamda doğrulandı.
+- **Denetçi raporu:** ödeme çıkışları, onaylar, beyaz liste, taramalar, kural ve denetim olayları tek ZIP'te, SHA-256 özetli manifest ile. Canlı ortamda doğrulandı.
+- **Neden modPAY?** karşılaştırma bölümü eklendi.
+- **Ledger over WebHID**, push notifications, inbound Travel Rule, hashed auditor report.
+
 ## v0.12.0 — Kurumsal kontroller / enterprise controls (15 Ekim 2026)
 
 - **Hazine kuralları:** ödeme çıkışlarında token başına işlem ve gün limitleri, beyaz liste (ikinci yönetici onayıyla etkinleşir), dört göz onayı; kuralı gevşeten değişiklikler 24 saat bekler. Canlı ortamda gerçek Sepolia ödeme çıkışı: oluşturan onaylayamadı, ikinci yönetici onayladı, işlem zincirde doğrulanıp deftere işlendi.

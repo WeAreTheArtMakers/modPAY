@@ -90,6 +90,7 @@ Bu düşünce modPAY'in şekillenmesine katkı sağladı: **anahtar sizde**, **n
 
 - Test ağları (Sepolia, BNB Smart Chain Testnet, Avalanche Fuji, Polygon Amoy, Arbitrum Sepolia) ve yerel devnet etkin; **ana ağda işlem gönderimi kapalıdır**.
 - **Ağlar arası USDC (Circle CCTP):** USDC bir ağda yakılır, diğerinde basılır; fonlar hep kullanıcının cüzdanında, her adım ayrı onaylanır ve sunucuda zincirden doğrulanır.
+- **Yerleşik Ledger, mobil bildirim, iki yönlü Travel Rule, denetçi raporu:** cihazda imza, onaylar telefona, gönderen/alıcı bilgileri iki yönde, SHA-256 özetli denetçi ZIP'i.
 - **E-ticaret API'si ve kasa ekranı:** API anahtarlarıyla sunucudan fatura, ödeme sonrası mağazaya dönüş; POS ekranında tek QR.
 - **Uyum hazırlığı:** kontroller SOC 2 ve ISO/IEC 27001:2022 ile eşlendi (kanıtlarıyla). Kart verisi işlenmez → PCI DSS kapsamı dışında.
 - modPAY bir banka, ödeme kuruluşu, borsa ya da saklayıcı değildir; gerçek varlıklarla kullanım, müşterinin hukuki ve düzenleyici değerlendirmesini gerektirir.
